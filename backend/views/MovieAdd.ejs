@@ -1,0 +1,48 @@
+<br>
+<p style="text-align: center; font-size: 25pt;font-weight: 100">영화 추가 하기</p>
+
+
+<form action="http://10.1.216.243:3000/movie/movieAdd" method="POST" enctype="multipart/form-data">
+    <div class="input-group mb-3" style="width: 1000px; margin: 0 auto">
+        <div class="input-group-prepend">
+          
+        </div>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="photo">
+            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+        </div>
+    </div>
+    <div class="input-group mb-3" style="width: 1000px; margin: 0 auto">
+        <input type="text" class="form-control" placeholder="영화제목" aria-label="Recipient's username"
+            aria-describedby="button-addon2" name="title">
+        <div class="input-group-append">
+            
+        </div>
+    </div>
+
+    <div class="input-group mb-3" style="width: 1000px; margin: 0 auto">
+        <input type="text" class="form-control" placeholder="영화줄거리" aria-label="Recipient's username"
+            aria-describedby="button-addon2" name="contents">
+        <div class="input-group-append">
+            
+        </div>
+    </div>
+
+    <div class="input-group mb-3" style="width: 1000px; margin: 0 auto">
+        <input type="text" class="form-control" placeholder="출연배우" aria-label="Recipient's username"
+            aria-describedby="button-addon2" name="actors">
+        <div class="input-group-append">
+            
+        </div>
+    </div>
+
+    <div class="input-group mb-3" style="width: 1000px; margin: 0 auto">
+        <input type="date" class="form-control" placeholder="개봉날짜(2019/02/22)" aria-label="Recipient's username"
+            aria-describedby="button-addon2" name="date">
+        <div class="input-group-append">
+            
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" style="margin-left: 50%">등록하기</button>
+</form>

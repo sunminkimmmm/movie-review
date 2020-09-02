@@ -1,0 +1,48 @@
+<br>
+<p style="text-align: center;font-size: 25pt;font-weight: 100">리뷰 작성하기</p>
+
+
+<div style="margin:0 auto;max-width:900px;" class="card mb-3">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img style="height:300px;width: 300px;" src="/<%= data[0].imgUrl%>" alt="" class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title"><%= data[0].title %></h5>
+                <p class="b"></p>
+                <p class="card-text"><span style="font-weight: bold">출연</span>&nbsp;&nbsp; <%= data[0].actors %></p>
+                <p class="card-text"><span style="font-weight: bold">내용</span>&nbsp;&nbsp;<%= data[0].contents %></p>
+                <p class="card-text"><span
+                        style="font-weight: bold">개봉</span>&nbsp;&nbsp;<%= data[0].date.getFullYear()%>년
+                    <%= data[0].date.getMonth()+1%>월 <%= data[0].date.getDate()%>일 </p>
+
+
+                <p class="card-text"><small class="text-muted">movieReview</small></p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+
+
+<form action="http://10.1.216.243:3000/movie/addReview" method="POST">
+    <input type="hidden" name="mCode" value="<%= mCode%>">
+    <div class="input-group mb-3" style="width: 1000px; margin: 0 auto">
+        <input type="text" class="form-control" placeholder="리뷰제목" aria-label="Recipient's username"
+            aria-describedby="button-addon2" name="rTitle">
+    </div>
+
+    <div class="input-group mb-3" style="width: 1000px; margin: 0 auto">
+        <div class="form-group">
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="rContents" placeholder="리뷰 내용" rows="10"
+                cols="200"></textarea>
+        </div>
+    </div>
+    <div class="w-100 text-center">
+        <button type="submit" class="btn btn-primary" >등록하기</button>
+    </div>
+
+</form>

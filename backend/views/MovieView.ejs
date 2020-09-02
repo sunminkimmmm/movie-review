@@ -1,0 +1,67 @@
+<style>
+.b:after {
+    content: "";
+    display: block;
+    width: 300px;
+    border-bottom: 1px solid #bcbcbc;
+
+  }
+</style>
+
+<br/>
+
+<div style="margin:0 auto;max-width:900px;" class="card mb-3">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img style="height:300px;width: 300px;" src="/<%= data.movie.imgUrl%>" alt="" class="card-img" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><%= data.movie.title %></h5>
+              <p class="b"></p>
+              <p class="card-text"><span style="font-weight: bold">출연</span>&nbsp;&nbsp; <%= data.movie.actors %></p>
+              <p class="card-text"><span style="font-weight: bold">내용</span>&nbsp;&nbsp;<%= data.movie.contents %></p>
+              <p class="card-text"><span style="font-weight: bold">개봉</span>&nbsp;&nbsp;<%= data.movie.date.getFullYear() %>년 <%= data.movie.date.getMonth()+1 %>월 
+                <%= data.movie.date.getDate() %>일</p>
+
+
+              <p class="card-text"><small class="text-muted">movieReview</small></p>
+              <% if(sess.info && sess.info.mail === "admin@dongseo.ac.kr"){ %>
+                <p style="margin-left: 24%" class="card-text"><a href="/movie/remove/<%= data.movie.mCode%>" class="btn btn-danger">삭제</a>
+              <% } %>
+                <a href="/movie/addReview?mCode=<%= data.movie.mCode%>"
+                    class="btn btn-primary text-right">리뷰 작성</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+<p style="text-align: center; font-size: 25pt;font-weight: 100">영화 리뷰 목록</p>
+
+<br/>
+<table class="table" style="width: 1000px; margin: 0 auto">
+    <thead class="thead-dark">
+        <tr>
+
+            <th style="text-align: center" scope="col">회원 아이디</th>
+            <th style="text-align: center" scope="col">제목</th>
+            <th style="text-align: center" scope="col">날짜</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% for(var i=0; i < data.review.length; i++) {%>
+        <tr>
+
+            <td style="text-align: center"><%=data.review[i].mail%></td>
+            <td style="text-align: center"><a href="/movie/reviewDetail?reviewId=<%= data.review[i].reviewId%>"><%=data.review[i].rTitle%></a></td>
+            <td style="text-align: center"><%=data.review[i].rDate.getFullYear()%> - <%=(data.review[i].rDate.getMonth()+1)%> - <%=data.review[i].rDate.getDate()%> <%=data.review[i].rDate.getHours()%>:<%=data.review[i].rDate.getMinutes()%></td>
+
+        </tr>
+        <% } %>
+    </tbody>
+</table>
